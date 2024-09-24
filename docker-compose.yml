@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  gearman:
+    build:
+      context: gearman/docker/.
+#    image: pataquets/gearmand
+    ports:
+      - "4730:4730"
+  gearmanui:
+    image: koryonik/gearman-ui
+    ports:
+      - "8085:80"
+    links:
+      - gearman
